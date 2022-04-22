@@ -116,7 +116,8 @@ for(int i = end; i != start; i = d[i]) {
 ```
 ##### MaxFlow 함수의 진행과정을 살펴보겠습니다.
 ###### while 반복문 실행을 하면 BFS를 통해 source -> sink로 가는 최단경로를 찾게됩니다. 
-![제목 없음](https://user-images.githubusercontent.com/97587573/164718601-e00c0120-3fad-476b-a9e2-213e8c3dd4f6.png)
+![20220422224548](https://user-images.githubusercontent.com/97587573/164726988-af20c079-38ba-40de-83bb-769056db99a2.png)
+
 ###### (그림판으로 그려서 그림이 고르지못한점 죄송합니다)
 ###### 간선연결을 작은수부터 차례로 해준다 가정했을때 위의 그림과 같은 상황에서 BFS 코드를 실행하면 1 -> 2 -> 4 로의 첫번째 source -> sink 식이 완성된다.
 
