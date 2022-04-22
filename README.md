@@ -115,4 +115,28 @@ for(int i = end; i != start; i = d[i]) {
 }
 ```
 ##### MaxFlow 함수의 진행과정을 살펴보겠습니다.
-###### while 반복문 실행을 하면 BFS를 통해 가능한 경로를 찾게됩니다
+###### while 반복문 실행을 하면 BFS를 통해 source -> sink로 가는 최단경로를 찾게됩니다. 
+![제목 없음](https://user-images.githubusercontent.com/97587573/164718601-e00c0120-3fad-476b-a9e2-213e8c3dd4f6.png)
+###### (그림판으로 그려서 그림이 고르지못한점 죄송합니다)
+###### 간선연결을 작은수부터 차례로 해준다 가정했을때 위의 그림과 같은 상황에서 BFS 코드를 실행하면 1 -> 2 -> 4 로의 첫번째 source -> sink 식이 완성된다.
+
+```
+	int flow = INF;
+	for(int i = end; i != start; i = d[i]) {
+		flow = min(flow, c[d[i]][i] - f[d[i]][i]);
+	}
+	
+	for(int i = end; i != start; i = d[i]) {
+		f[d[i]][i] += flow;
+		f[i][d[i]] -= flow;
+	}
+	result += flow;
+```
+###### 그 후 위의 코드를 따라가보면 1 -> 2 -> 3 으로 가는 간선중 가장작은 용량을 가진 간선을 찾고 해당 간선들의 유량을 가장작은 용량으로 더해준다
+```
+	for(int i = end; i != start; i = d[i]) {
+		f[d[i]][i] += flow;
+		f[i][d[i]] -= flow;
+	}
+```
+###### 2-2 에서 말했던 보이지 않는 유량을 선언하기 위해 f[i][d[i]] -= flow 를 해주었다.
