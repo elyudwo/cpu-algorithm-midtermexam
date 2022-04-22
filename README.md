@@ -44,13 +44,20 @@
 
 #### 2-3. 알고리즘 분석
 ```
+#define MAX 100
+#define INF 100000000
+
+int n = 6, result;
+int c[MAX][MAX], f[MAX][MAX], d[MAX];
+vector<int> a[MAX];
+
 int main(void) {
 	
 	int n;
-	cin >> n; // n * 2  == 간선의 개수
+	cin >> n; 
 	
 	for(int i=0; i<n; i++) {
-		int m1,m2,m3; // m1,m2 간선 m3 용량 
+		int m1,m2,m3;
 		cin >> m1 >> m2 >> m3;
 		a[m1].push_back(m2);
 		a[m2].push_back(m1);
@@ -58,5 +65,42 @@ int main(void) {
 	} 
 	maxFlow(1,6);
 	cout << result;
+}
+```
+###### ford fulkerson 알고리즘을 표현하기 위해 2차원 배열과 c++의 vector container를 사용했습니다 2차원 배열의 경우 간선의 용량을 표현하기 위해 선언해줬고 vector container는 각 간선을 연결해주기 위해 선언했습니다.
+###### 간선의 개수를 정해주는 n을 입력받은 뒤 for문을 이용해 간선연결, 간선정보를 입력해주고 maxFlow 함수를 통해 최대유량을 계산하는 과정입니다.
+###### 다음으로는 maxFlow 함수에 대해 살펴보겠습니다.
+
+```
+void maxFlow(int start, int end) {
+	while(1) {
+		fill(d, d + MAX, -1);
+		queue<int> q;
+		q.push(start);
+		while(!q.empty()) {
+			int x = q.front();
+			q.pop();
+			for(int i=0; i<a[x].size(); i++) {
+				int y = a[x][i];
+				
+				if(c[x][y] - f[x][y] > 0 && d[y] == -1) {
+					q.push(y);
+					d[y] = x;
+					if(y == end) break;
+				}
+			}
+		}
+		if(d[end] == -1) break;
+		int flow = INF;
+		for(int i = end; i != start; i = d[i]) {
+			flow = min(flow, c[d[i]][i] - f[d[i]][i]);
+		}
+		
+		for(int i = end; i != start; i = d[i]) {
+			f[d[i]][i] += flow;
+			f[i][d[i]] -= flow;
+		}
+		result += flow;
+	}	
 }
 ```
