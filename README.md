@@ -193,7 +193,7 @@ if(c[x][y] - f[x][y] > 0 && d[y] == -1)
 		
 		for(int i = end; i != start; i = d[i]) {
 			f[d[i]][i] += flow;
-			f[i][d[i]] -= flow;
+			f[i][d[i]] -= flow;	
 		}
 ```
 
@@ -202,3 +202,15 @@ if(c[x][y] - f[x][y] > 0 && d[y] == -1)
 
 #### 4. 실행결과 
 
+##### 위의 그림판 그림대로 출력했을때의 화면은 다음과 같습니다.
+![실행화면](https://user-images.githubusercontent.com/97587573/164970828-42082673-7ef5-4525-99ef-895058aa442c.png)
+
+###### 차례대로 간선의 개수, source와 sink 간선정보와 용량 마지막줄에 결과가 출력 됩니다.
+
+##### 아래 그림과 같이 간선의 개수를 늘려서 실행해보겠습니다
+
+###### 실행화면은 다음과 같습니다
+
+![실행화면 2](https://user-images.githubusercontent.com/97587573/164971175-6e14554e-f6b0-4e16-8c7b-cc9b13f1b89b.png)
+
+######
