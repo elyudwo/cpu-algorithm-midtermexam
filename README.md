@@ -179,4 +179,21 @@ if(c[x][y] - f[x][y] > 0 && d[y] == -1)
 ###### 위의 if문에 걸리지 않고 실행되며 1->3->2->4 로의 경로가 완성된다.
 ###### 따라서 result 값은 2가 되므로 알고리즘이 정상작동 하게된다.
 
+#### 3. 시간 복잡도
 
+![화면 캡처 2022-04-24 181904](https://user-images.githubusercontent.com/97587573/164969443-b7d3bcba-8709-44f7-88dab411f2f67a3a.png)
+
+###### ford-fulkerson 알고리즘의 시간복잡도에 대해서 알아보겠습니다. 
+###### 먼저 main 함수에서 for 루프가 한번밖에 없으므로 빅오 표기법으로 표현하면 O(n) MaxFlow 함수에서 BFS를 이용하는데 BFS는 시간복잡도가 O(n) 이고
+```
+		for(int i = end; i != start; i = d[i]) {
+		flow = min(flow, c[d[i]][i] - f[d[i]][i]);
+		}
+		
+		for(int i = end; i != start; i = d[i]) {
+			f[d[i]][i] += flow;
+			f[i][d[i]] -= flow;
+		}
+```
+
+###### 위의 코드또한 중첩 for문이 없으므로 시간복잡도는 빅오 표기법으로 표현했을때 O(n) 이다. n + n + n = 3n 인데 빅오표기법에서는 앞의 계수를 고려하지 않으므로 O(n) 이다.
