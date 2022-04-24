@@ -209,8 +209,10 @@ if(c[x][y] - f[x][y] > 0 && d[y] == -1)
 
 ##### 아래 그림과 같이 간선의 개수를 늘려서 실행해보겠습니다
 
+## 그림
+
 ###### 실행화면은 다음과 같습니다
 
-![실행화면 2](https://user-images.githubusercontent.com/97587573/164971175-6e14554e-f6b0-4e16-8c7b-cc9b13f1b89b.png)
+![실행화면 3](https://user-images.githubusercontent.com/97587573/164971775-083d70a3-daa8-4edc-8f2c-c025623a1381.png)
 
-######
+###### 
