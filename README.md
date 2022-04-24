@@ -181,7 +181,8 @@ if(c[x][y] - f[x][y] > 0 && d[y] == -1)
 
 #### 3. 시간 복잡도
 
-![화면 캡처 2022-04-24 181904](https://user-images.githubusercontent.com/97587573/164970151-461cfced-7b70-4dde-a13f-550dd89a590a.png)
+![화면 캡처 2022-04-24 181904](https://user-images.githubusercontent.com/97587573/164970186-979010fb-f70c-4179-a10e-5b79e2f8b015.png)
+
 
 ###### ford-fulkerson 알고리즘의 시간복잡도에 대해서 알아보겠습니다. 
 ###### 먼저 main 함수에서 for 루프가 한번밖에 없으므로 빅오 표기법으로 표현하면 O(n) MaxFlow 함수에서 BFS를 이용하는데 BFS는 시간복잡도가 O(n) 이고
